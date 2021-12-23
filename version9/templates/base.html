@@ -1,0 +1,51 @@
+{% load static %}
+
+<html>
+    <head>
+        <!--aca aparece el titulo que ve el explorador-->
+        <title>publicaciones</title>   
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device.width, initial-scale=1, shrink-to-fit=no">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="row flex-nowrap justify-content-between align-items-center">
+
+            <div class="text-center" style="background-color:rgb(123, 177, 231);">
+             </a class="text-center" >publicacion</a>
+            </div>
+          </div>
+        <header class="blog-header py-3">
+            <div class="nav-scroller py-1 mb-2">
+                <nav class="nav d-flex justify-content-between">
+                   
+                    <a class="p-2 link-secondary" href="http://127.0.0.1:8000/explicacion/">¿cual es el proposito de la pagina?</a>
+                    <a class="p-2 link-secondary" href="http://127.0.0.1:8000/user/login/">ingresar</a>
+                    <a class="p-2 link-secondary" href="http://127.0.0.1:8000/">inicio</a>
+                    {% if user.is_authenticated %}
+                        <a class="p-2 link-secondary" href="http://127.0.0.1:8000/user/logout">salir</a>
+                    {% endif %}
+
+                </nav>
+            </div>   
+        </header>
+        {% block content %}
+
+
+        {% endblock %}
+        <footer class="blog-footer">
+            {%if user.is_authenticated%}
+            <h16 class="text-center"><a href="http://127.0.0.1:8000/crear" class="btn btn-secondary my-2">agregar</a></h16>
+            {%endif%}
+            </16>
+            <h16 class="text-center"> <p><a href="http://127.0.0.1:8000/">inicio</a> </h16>
+            <p>
+                <h16 class="text-center"><a href="#">ir arriba</a></h16>
+            </p>
+          </footer>
+    </body>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html> 
+
