@@ -11,7 +11,7 @@ from .forms import NoticiaForm
 from django.views.generic.detail import DetailView
 
 from publicacion import models
-
+a1='http://127.0.0.1:8000/'
 
 # Create your views here.
 def saludo(request):
@@ -22,6 +22,11 @@ class Listar(ListView):
 	model=publicacion
 	template_name = "listado.html"
 	context_object_name = "publicaciones"
+class comentar(ListView):
+	
+	model=Comentario
+	template_name = "detalle.html"
+	context_object_name = "comentarios"
 
 class Detalle(DetailView):
 	model=publicacion
@@ -35,12 +40,14 @@ class quees19(ListView):
 class Updatepublicacion(UpdateView):
 	model = publicacion
 	template_name = "publicacion/publicacion_form.html"
-	success_url='http://127.0.0.1:8000/'
+	success_url=a1
 	fields=['autor', 'titulo', 'contenido', 'fecha_creacion']
 
 class borrarpublicacion(DeleteView):
 	model=publicacion
-	success_url = 'http://127.0.0.1:8000/'
+	template_name='publicacion/publicacion_delete.html'
+	success_url = a1
+	fields=['id']
 
 
 

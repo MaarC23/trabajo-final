@@ -10,7 +10,10 @@ urlpatterns = [
     path('crear/', views.Crearpublicacion.as_view(), name='crear'),    
     path('detalle/<slug:pk>',Detalle.as_view(), name='detalle'),
     path('update/<slug:pk>', Updatepublicacion.as_view(), name='actualizar'),
-    path('borrar/<slug:pk>' , borrarpublicacion.as_view(), name='borrar')
+    path('borrar/<slug:pk>' , borrarpublicacion.as_view(), name='borrar'),
+    #path('crearcomentarios/<slug:fk>' , agregarcom.as_view(), name='agregarcom'),
+    
+    
 
         
 ]

@@ -9,39 +9,47 @@
 				
 
 						{% if user.is_authenticated %}
-				          		<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-						  		Eliminar
-							</button>
+							<a href="{% url 'borrar' object.id %}">eliminar</a>
+				          	<!--button  type="button" class="btn btn-danger" data-toggle="modal" data-target="exampleModal">
+						  		#Eliminar
+							</button>-->
 							{% endif %}
-		
-	
+							<div class="row mb-2">
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Eliminar Noticia</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		        Estas seguro que deseas eliminar la noticia <strong>{{ object.titulo}}</strong>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <form action="{% url 'borrar' object.id %}" method="publicacion">
-				       {% csrf_token %}
-				       <button class="btn btn-danger">Delete</button>
-				</form>
-		      </div>
-		    </div>
-		  </div>
-	</div>
+								{% if comentarios %}
+									{% for noticia in comentarios %}
+						
+						
+												<div class="col-md-15">
+													<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-10 shadow-sm h-md-250 position-relative">
+													<div class="col p-4 d-flex flex-column position-static">
+													<strong class="d-inline-block mb-2 text-primary">publicacion</strong>
+													<h3 class="mb-0">{{ noticia.autor}}</h3>
+													<div class="mb-1 text-muted">{{ noticia.fecha_hora| date:"D d n Y"}}</div>
+													
+													<p class="card-text mb-auto">{{ noticia.contenido}}</p>
+													
+						
+														
+							
+									{% endfor %}
+									{% else %}
+									<h6>no hay registro de comentarios </h6>
+
+						
+									<a href="{% url 'agregarcom' object.id %}">comentar</a>
+						
+						
+								{% endif %}
+						
+						</div>
+
+
+	
 
 
 
 
 
 {% endblock %}	
-			<!--
+		

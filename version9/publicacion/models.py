@@ -10,6 +10,7 @@ class publicacion(models.Model):
     contenido=models.CharField(max_length=200)
     fecha_creacion=models.DateField(timezone.now)
     tema_entre1y17=models.CharField(max_length=2, blank=True, null=True)
+    clase=models.CharField(max_length=10, blank=True, null=True)
 
     
    
@@ -19,6 +20,8 @@ class publicacion(models.Model):
     def publicar(self):
         self.fecha_publicacion= timezone.now()
         self.save()
+    def borrar(self):
+        self.delete()
 #-______________--------------------------------------------------------------------
     
     def __str__(self):

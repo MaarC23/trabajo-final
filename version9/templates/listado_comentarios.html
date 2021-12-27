@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row mb-2">
+
+		{% if comentarios %}
+			{% for noticia in comentarios %}
+
+
+						<div class="col-md-15">
+							<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-10 shadow-sm h-md-250 position-relative">
+							<div class="col p-4 d-flex flex-column position-static">
+							<strong class="d-inline-block mb-2 text-primary">publicacion</strong>
+							<h3 class="mb-0">{{ noticia.autor}}</h3>
+							<div class="mb-1 text-muted">{{ noticia.fecha_hora| date:"D d n Y"}}</div>
+							
+							<p class="card-text mb-auto">{{ noticia.contenido}}</p>
+							
+
+								
+	
+			{% endfor %}
+			{% else %}
+			<h6>no hay registro de publicaciones </h6>
+
+
+		{% endif %}
+
+</div>
+{% endblock %}
